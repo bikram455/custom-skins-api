@@ -4,7 +4,8 @@
   "description": "this is a REST api project for custom skin.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start-port": "nodemon index.js",
+    "start": "node index.js",
     "test": "test"
   },
   "author": "R_upture",
