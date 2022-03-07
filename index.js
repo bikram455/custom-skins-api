@@ -4,7 +4,7 @@ import { connectClient } from './connection.js';
 
 let app = express();
 dotenv.config();
-console.log('the port is: ', process.env.PORT);
+console.log('the port is: ', process.env.PORT, process.env.USERNAME);
 app.get('/' , (req , res ) => {
     res.json({
         message:'Welcome to the api',
@@ -12,7 +12,7 @@ app.get('/' , (req , res ) => {
     });
 });
 
-app.listen(process.env.PORT, () => {
-    console.log('Listening to port: 300');
+app.listen(process.env.PORT || 300, () => {
+    console.log('Listening to port: ', process.env.PORT);
     connectClient();
 });
