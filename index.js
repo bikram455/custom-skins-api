@@ -1,9 +1,18 @@
+import dotenv from 'dotenv';
 import express from 'express';
 import { connectClient } from './connection.js';
 
+dotenv.config();
 let app = express();
 
-app.listen(300, () => {
+app.get('/' , (req , res ) => {
+    res.json({
+        message:'Welcome to the api',
+        instruction:'/api to enter api'
+    });
+});
+
+app.listen(process.env.PORT || 300, () => {
     console.log('Listening to port: 300');
     connectClient();
 });

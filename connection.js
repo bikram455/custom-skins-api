@@ -8,7 +8,7 @@ export const connectClient = async()=> {
     
     let user= process.env.USERNAME;
     let password= process.env.PASSWORD;
-    let port= process.env.PORT;
+    let port= process.env.DBPORT;
     let host= process.env.HOST;
     let dbname= process.env.DATABASE;
 
