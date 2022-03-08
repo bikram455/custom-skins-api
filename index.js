@@ -13,6 +13,14 @@ app.get('/' , (req , res ) => {
 });
 
 app.listen(process.env.PORT || 300, () => {
+
+const { Pool } = require('pg');
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
+});
     console.log('Listening to port: ', process.env.PORT || 300);
-    connectClient();
+    // connectClient();
 });
