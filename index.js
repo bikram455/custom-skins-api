@@ -1,6 +1,7 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import { connectClient } from './connection.js';
+import * as pg from 'pg';
 
 let app = express();
 dotenv.config();
@@ -14,7 +15,7 @@ app.get('/' , (req , res ) => {
 
 app.listen(process.env.PORT || 300, () => {
 
-const { Pool } = require('pg');
+const { Pool } = pg;
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {
