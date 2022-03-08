@@ -13,6 +13,6 @@ app.get('/' , (req , res ) => {
 });
 
 app.listen(process.env.PORT || 300, () => {
-    console.log('Listening to port: ', process.env.PORT);
+    console.log('Listening to port: ', process.env.PORT || 300);
     connectClient();
 });
