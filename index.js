@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import { connectClient } from './connection.js';
-import * as pg from 'pg';
+import pg from 'pg';
 
 let app = express();
 dotenv.config();
