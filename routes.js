@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getUsers } from './controllers/user-controllers.js';
+import { getUsers, userLogin } from './controllers/user-controller.js';
 
 let routes = Router();
 
@@ -18,8 +18,20 @@ routes.get('/users', async (req , res ) => {
     });
 });
 
-routes.post('/login', async(req, res) => {
-    console.log('This is user body: ', req.body);
+routes.post('/login', async(req, res, next) => {
+    try {
+        const users = await userLogin(req.body);
+        res.json({
+            message: 'Successfully logged in.',
+            username: req.body.username
+        });
+    } catch(err) {
+        res.status(500);
+        res.json({
+            message: 'Error while logging in.',
+            error: err
+        });
+    }
 });
 
 export default routes;

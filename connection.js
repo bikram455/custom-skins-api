@@ -11,9 +11,5 @@ export const connectClient = ()=> {
             rejectUnauthorized: false
         }
     });
-
-    // const client = await pool.connect();
-    // const res = await client.query('select * from users');
-    // console.log(res.rows);
     return pool;
 }
