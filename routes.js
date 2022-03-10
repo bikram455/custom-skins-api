@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getUsers, userLogin } from './controllers/user-controller.js';
+import { getUsers, userLogin, userSignup } from './controllers/user-controller.js';
 
 let routes = Router();
 
@@ -29,6 +29,21 @@ routes.post('/login', async(req, res, next) => {
         res.status(500);
         res.json({
             message: 'Error while logging in.',
+            error: err
+        });
+    }
+});
+
+routes.post('/signup', async(req, res, next) => {
+    try {
+        const msg = await userSignup(req.body);
+        res.json({
+            message: msg
+        });
+    } catch(err) {
+        res.status(500);
+        res.json({
+            message: 'Error while Signing up new user.',
             error: err
         });
     }

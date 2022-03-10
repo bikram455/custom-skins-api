@@ -1,5 +1,5 @@
 import { connectClient } from '../connection.js';
-import { userLoginService } from '../services/user-service.js';
+import { userLoginService, userRegisterService } from '../services/user-service.js';
 
 export const getUsers = async ()=> {
     try {
@@ -19,5 +19,14 @@ export const userLogin = async (data)=> {
         return Promise.reject("Username or password incorrect.");
     } else {
         return Promise.resolve (users[0]);
+    }
+}
+
+export const userSignup = async (data)=> {
+    try {
+        const res = await userRegisterService(data);
+        return Promise.resolve (res);
+    } catch(err) {
+        return Promise.reject (err);
     }
 }
