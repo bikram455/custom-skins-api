@@ -3,10 +3,11 @@ import { userLoginService, userRegisterService } from '../services/user-service.
 
 export const getUsers = async ()=> {
     try {
-        const pool = connectClient();
-        const client = await pool.connect();
+        // const pool = connectClient();
+        // const client = await pool.connect();
+        const client = await connectClient();
         const res = await client.query('select * from users');
-        client.release();
+        // client.release();
         return res.rows;
     } catch(err) {
         console.error('Error while fetching users: ', err);
