@@ -1,4 +1,5 @@
 import { connectClient } from '../connection.js';
+import { getToken } from '../utilities/token.utilities.js';
 import { userLoginService, userRegisterService } from '../services/user-service.js';
 
 export const getUsers = async ()=> {
@@ -19,6 +20,7 @@ export const userLogin = async (data)=> {
     if(users.length === 0) {
         return Promise.reject("Username or password incorrect.");
     } else {
+        getToken(data.username);
         return Promise.resolve (users[0]);
     }
 }

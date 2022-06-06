@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { getUsers, userLogin, userSignup } from './controllers/user-controller.js';
+import { fetchEmployees } from './controllers/employee-controller.js';
 
 let routes = Router();
 
@@ -47,6 +48,14 @@ routes.post('/signup', async(req, res, next) => {
             error: err
         });
     }
+});
+
+routes.get('/employees', async (req , res ) => {
+    const users = await fetchEmployees();
+    res.json({
+        message: 'This is api to fetch employees',
+        users
+    });
 });
 
 export default routes;

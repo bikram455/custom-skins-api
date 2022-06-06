@@ -15,6 +15,7 @@ export const connectClient = async()=> {
             }
         });
         // return pool;
+        console.log('client connected');
         client = await pool.connect();
     }
     return client;
