@@ -51,10 +51,10 @@ routes.post('/signup', async(req, res, next) => {
 });
 
 routes.get('/employees', async (req , res ) => {
-    const users = await fetchEmployees();
+    const employees = await fetchEmployees();
     res.json({
         message: 'This is api to fetch employees',
-        users
+        employees
     });
 });
 

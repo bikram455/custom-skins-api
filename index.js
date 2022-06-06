@@ -2,8 +2,10 @@ import dotenv from 'dotenv';
 import express from 'express';
 import routes from './routes.js';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 
 let app = express();
+app.use(cors());
 dotenv.config();
 app.use(bodyParser.json());
 
